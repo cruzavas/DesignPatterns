@@ -3,7 +3,7 @@ using DesignPatterns.FactoryPattern;
 using DesignPatterns.Models;
 using DesignPatterns.RepositoryPattern;
 using System;
-using System.Linq;
+using Beer = DesignPatterns.Models.Beer;
 
 namespace DesignPatterns
 {
@@ -32,14 +32,15 @@ namespace DesignPatterns
 			drinkWithBeer.Build();
 
 			//Repository
-			//using(var context = new DesignPatternsContext())
-			//{
-			//	var lst = context.Beers.ToList();
-			//	foreach (var item in lst)
-			//	{
-			//		Console.WriteLine(item.Name);
-			//	}
-			//}
+			/*
+			using (var context = new DesignPatternsContext())
+			{
+				var lst = context.Beers.ToList();
+				foreach (var item in lst)
+				{
+					Console.WriteLine(item.Name);
+				}
+			}
 
 			using (var context = new DesignPatternsContext())
 			{
@@ -52,6 +53,31 @@ namespace DesignPatterns
 				beerRepository.Save();
 
 				foreach (var item in beerRepository.Get())
+				{
+					Console.WriteLine(item.Name);
+				}
+			}*/
+
+			using (var context = new DesignPatternsContext())
+			{
+				var beerRepository = new Repository<Beer>(context);
+				var beer = new Beer() { Name = "Fuller", Style = "Strong Ale" };
+
+				beerRepository.Add(beer);
+				beerRepository.Save();
+
+				foreach (var item in beerRepository.Get())
+				{
+					Console.WriteLine($"{item.BeerId} {item.Name}");
+				}
+
+				var brandRepository = new Repository<Brand>(context);
+				var brand = new Brand();
+				brand.Name = "Fuller";
+				brandRepository.Add(brand);
+				brandRepository.Save();
+
+				foreach (var item in brandRepository.Get())
 				{
 					Console.WriteLine(item.Name);
 				}
