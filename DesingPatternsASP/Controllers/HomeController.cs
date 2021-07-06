@@ -1,7 +1,7 @@
 ﻿using DesignPatterns.Models.Data;
 using DesignPatterns.Repository;
-using DesingPatternsASP.Configuration;
-using DesingPatternsASP.Models;
+using DesignPatternsAsp.Configuration;
+using DesignPatternsAsp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tools;
 
-namespace DesingPatternsASP.Controllers
+namespace DesignPatternsAsp.Controllers
 {
 	public class HomeController : Controller
 	{

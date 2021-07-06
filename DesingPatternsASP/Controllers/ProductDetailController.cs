@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tools.Earn;
 
-namespace DesingPatternsASP.Controllers
+namespace DesignPatternsAsp.Controllers
 {
 	public class ProductDetailController : Controller
 	{

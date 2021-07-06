@@ -1,6 +1,6 @@
 using System;
 
-namespace DesingPatternsASP.Models
+namespace DesignPatternsAsp.Models
 {
 	public class ErrorViewModel
 	{
