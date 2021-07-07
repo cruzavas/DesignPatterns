@@ -2,6 +2,7 @@
 using DesignPatterns.FactoryPattern;
 using DesignPatterns.Models;
 using DesignPatterns.RepositoryPattern;
+using DesignPatterns.StrategyPattern;
 using DesignPatterns.UnitOfWorkPattern;
 using System;
 using Beer = DesignPatterns.Models.Beer;
@@ -84,25 +85,33 @@ namespace DesignPatterns
 			//	}
 			//}
 
-			//Unit Of Work
+			////Unit Of Work
 
-			using (var context = new DesignPatternsContext())
-			{
-				var unitOfWork = new UnitOfWork(context);
+			//using (var context = new DesignPatternsContext())
+			//{
+			//	var unitOfWork = new UnitOfWork(context);
 
-				var beers = unitOfWork.Beers;
-				var beer = new Beer() { Name = "Fuller", Style = "Porter" };
-				beers.Add(beer);
+			//	var beers = unitOfWork.Beers;
+			//	var beer = new Beer() { Name = "Fuller", Style = "Porter" };
+			//	beers.Add(beer);
 
-				var brands = unitOfWork.Brands;
-				var brand = new Brand()
-				{
-					Name = "Fuller"
-				};
-				brands.Add(brand);
+			//	var brands = unitOfWork.Brands;
+			//	var brand = new Brand()
+			//	{
+			//		Name = "Fuller"
+			//	};
+			//	brands.Add(brand);
 
-				unitOfWork.Save();
-			}
+			//	unitOfWork.Save();
+			//}
+
+			//Strategy Pattern
+			var context = new Context(new CarStrategy());
+			context.Run();
+			context.Strategy = new MotoStrategy();
+			context.Run();
+			context.Strategy = new BicycleStrategy();
+			context.Run();
 		}
 	}
 }
