@@ -1,7 +1,6 @@
 ﻿using DesignPatterns.Models.Data;
 using DesignPatterns.Repository;
 using DesignPatternsAsp.Models.ViewModels;
-using DesignPatternsAsp.Models.ViewModels;
 using DesignPatternsASP.Strategies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

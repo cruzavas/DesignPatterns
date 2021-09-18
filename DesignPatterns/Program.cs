@@ -1,4 +1,5 @@
-﻿using DesignPatterns.DependencyInjection;
+﻿using DesignPatterns.BuilderPattern;
+using DesignPatterns.DependencyInjection;
 using DesignPatterns.FactoryPattern;
 using DesignPatterns.Models;
 using DesignPatterns.RepositoryPattern;
@@ -106,12 +107,21 @@ namespace DesignPatterns
 			//}
 
 			//Strategy Pattern
-			var context = new Context(new CarStrategy());
-			context.Run();
-			context.Strategy = new MotoStrategy();
-			context.Run();
-			context.Strategy = new BicycleStrategy();
-			context.Run();
+			//var context = new Context(new CarStrategy());
+			//context.Run();
+			//context.Strategy = new MotoStrategy();
+			//context.Run();
+			//context.Strategy = new BicycleStrategy();
+			//context.Run();
+
+			var builder = new PreparedAlcoholicDrinkConcreteBuilder();
+			var barmanDirector = new BarmanDirector(builder);
+
+			barmanDirector.PreparePiñaColada();
+
+			var preparedDrink = builder.GetPreparedDrink();
+
+			Console.WriteLine(preparedDrink.Result);
 		}
 	}
 }
