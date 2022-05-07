@@ -3,6 +3,7 @@ using DesignPatterns.DependencyInjection;
 using DesignPatterns.FactoryPattern;
 using DesignPatterns.Models;
 using DesignPatterns.RepositoryPattern;
+using DesignPatterns.StatePattern;
 using DesignPatterns.StrategyPattern;
 using DesignPatterns.UnitOfWorkPattern;
 using System;
@@ -114,14 +115,33 @@ namespace DesignPatterns
 			//context.Strategy = new BicycleStrategy();
 			//context.Run();
 
-			var builder = new PreparedAlcoholicDrinkConcreteBuilder();
-			var barmanDirector = new BarmanDirector(builder);
+			//Builder Pattern
+			//var builder = new PreparedAlcoholicDrinkConcreteBuilder();
+			//var barmanDirector = new BarmanDirector(builder);
 
-			barmanDirector.PreparePiñaColada();
+			//barmanDirector.PreparePiñaColada();
 
-			var preparedDrink = builder.GetPreparedDrink();
+			//var preparedDrink = builder.GetPreparedDrink();
 
-			Console.WriteLine(preparedDrink.Result);
+			//Console.WriteLine(preparedDrink.Result);
+
+			//State Pattern
+			var customerContext = new CustomerContext();
+			Console.WriteLine(customerContext.GetState());
+			customerContext.Request(100);
+			Console.WriteLine(customerContext.GetState());
+
+			customerContext.Request(50);
+			Console.WriteLine(customerContext.GetState());
+
+			customerContext.Request(100);
+			Console.WriteLine(customerContext.GetState());
+
+			customerContext.Request(50);
+			Console.WriteLine(customerContext.GetState());
+
+			customerContext.Request(50);
+			Console.WriteLine(customerContext.GetState());
 		}
 	}
 }
